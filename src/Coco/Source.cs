@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Coco.graphics;
+using System.Windows.Forms;
 
 namespace Coco
 {
@@ -7,6 +8,13 @@ namespace Coco
         public Source()
         {
             InitializeComponent();
+        }
+
+        private Background background = new Background();
+
+        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            background.Draw(e.Graphics, this.Font);
         }
     }
 }
