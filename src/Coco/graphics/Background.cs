@@ -52,7 +52,7 @@ namespace Coco.graphics
 
             // 出入口
             Font exit = new Font("Meiryo", 15);
-            g.DrawString("出入口", exit, Brushes.Black, 560, 390);
+            g.DrawString("｜ 出入口 ｜", exit, Brushes.Black, 530, 390);
         }
     }
 }
