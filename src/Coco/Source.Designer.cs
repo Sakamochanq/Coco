@@ -64,7 +64,7 @@
             this.ファイルFToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,9 +101,9 @@
             this.panel1.Controls.Add(this.AddObjectButton2);
             this.panel1.Controls.Add(this.Objectproperty);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(735, 24);
+            this.panel1.Location = new System.Drawing.Point(732, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(232, 499);
+            this.panel1.Size = new System.Drawing.Size(270, 499);
             this.panel1.TabIndex = 2;
             // 
             // ObjectListView
@@ -113,7 +113,7 @@
             this.ObjectListView.HideSelection = false;
             this.ObjectListView.Location = new System.Drawing.Point(14, 17);
             this.ObjectListView.Name = "ObjectListView";
-            this.ObjectListView.Size = new System.Drawing.Size(206, 160);
+            this.ObjectListView.Size = new System.Drawing.Size(242, 147);
             this.ObjectListView.TabIndex = 4;
             this.ObjectListView.UseCompatibleStateImageBehavior = false;
             this.ObjectListView.View = System.Windows.Forms.View.Details;
@@ -122,7 +122,7 @@
             // DelObjectButton2
             // 
             this.DelObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DelObjectButton2.Location = new System.Drawing.Point(52, 184);
+            this.DelObjectButton2.Location = new System.Drawing.Point(52, 170);
             this.DelObjectButton2.Name = "DelObjectButton2";
             this.DelObjectButton2.Size = new System.Drawing.Size(168, 30);
             this.DelObjectButton2.TabIndex = 4;
@@ -133,7 +133,7 @@
             // AddObjectButton2
             // 
             this.AddObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.AddObjectButton2.Location = new System.Drawing.Point(14, 183);
+            this.AddObjectButton2.Location = new System.Drawing.Point(14, 169);
             this.AddObjectButton2.Name = "AddObjectButton2";
             this.AddObjectButton2.Size = new System.Drawing.Size(30, 30);
             this.AddObjectButton2.TabIndex = 4;
@@ -143,9 +143,9 @@
             // 
             // Objectproperty
             // 
-            this.Objectproperty.Location = new System.Drawing.Point(14, 251);
+            this.Objectproperty.Location = new System.Drawing.Point(14, 206);
             this.Objectproperty.Name = "Objectproperty";
-            this.Objectproperty.Size = new System.Drawing.Size(206, 236);
+            this.Objectproperty.Size = new System.Drawing.Size(242, 281);
             this.Objectproperty.TabIndex = 0;
             this.Objectproperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.Objectproperty_PropertyValueChanged);
             // 
@@ -154,7 +154,7 @@
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.statusStrip1.Location = new System.Drawing.Point(0, 501);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(735, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(732, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 523);
+            this.ClientSize = new System.Drawing.Size(1002, 523);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox);
