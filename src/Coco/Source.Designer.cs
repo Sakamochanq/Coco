@@ -81,6 +81,7 @@
             | System.Windows.Forms.Keys.A)));
             this.AddObjectButton1.Size = new System.Drawing.Size(256, 22);
             this.AddObjectButton1.Text = "新規オブジェクトの追加";
+            this.AddObjectButton1.Click += new System.EventHandler(this.AddObjectButton1_Click);
             // 
             // DelObjectButton1
             // 
@@ -135,6 +136,7 @@
             this.AddObjectButton2.TabIndex = 4;
             this.AddObjectButton2.Text = "+";
             this.AddObjectButton2.UseVisualStyleBackColor = true;
+            this.AddObjectButton2.Click += new System.EventHandler(this.AddObjectButton2_Click);
             // 
             // DelObjectButton2
             // 
