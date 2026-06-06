@@ -246,5 +246,26 @@ namespace Coco
         {
             DelObjectButton1_Click(sender, e);
         }
+
+        private void ObjectListView_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (ObjectListView.SelectedItems.Count > 0)
+            {
+                // 選択されたListViewItemを取得
+                ListViewItem item = ObjectListView.SelectedItems[0];
+
+                // ListViewのTagからdeviceを取得
+                device selected = (device)item.Tag;
+
+                // 選択中device更新
+                selectedDevice = selected;
+
+                // PropertyGrid表示
+                Objectproperty.SelectedObject = selected;
+
+                // PictureBox再描画
+                pictureBox.Invalidate();
+            }
+        }
     }
 }

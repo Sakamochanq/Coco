@@ -117,6 +117,7 @@
             this.ObjectListView.TabIndex = 4;
             this.ObjectListView.UseCompatibleStateImageBehavior = false;
             this.ObjectListView.View = System.Windows.Forms.View.Details;
+            this.ObjectListView.SelectedIndexChanged += new System.EventHandler(this.ObjectListView_SelectedIndexChanged);
             // 
             // DelObjectButton2
             // 
