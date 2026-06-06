@@ -19,6 +19,10 @@ namespace Coco
 
         private device selectedDevice = null;
 
+        private bool isDragging = false;
+
+        private Point dragOffset;
+
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             // 背景の描画
@@ -89,17 +93,49 @@ namespace Coco
             {
                 if (device.Cord.Contains(e.Location))
                 {
+                    // 選択状態にする
                     selectedDevice = device;
 
+                    // 選択中のオブジェクトをプロパティに表示
                     Objectproperty.SelectedObject = device;
 
+                    // ListBoxでオブジェクトを選択状態にする
                     ObjectListBox.SelectedItem = device;
+
+                    // ドラッグ移動開始
+                    isDragging = true;
+
+                    // 位置の計算
+                    dragOffset = new Point(e.X - device.Cord.X, e.Y - device.Cord.Y);
 
                     break;
                 }
             }
 
+            // 画面を再描画
             pictureBox.Invalidate();
+        }
+
+        private void pictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            // もしドラッグ中で、かつ選択されたデバイスがある場合
+            if (isDragging && selectedDevice != null)
+            {
+                // デバイスの位置を更新
+                selectedDevice.Cord = new Rectangle(e.X - dragOffset.X, e.Y - dragOffset.Y, selectedDevice.Cord.Width, selectedDevice.Cord.Height);
+
+                // プロパティを更新
+                Objectproperty.Refresh();
+
+                // 画面を再描画
+                pictureBox.Invalidate();
+            }
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            // ドラッグ移動終了
+            isDragging = false;
         }
     }
 }
