@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +40,12 @@
             this.AddObjectButton2 = new System.Windows.Forms.Button();
             this.Objectproperty = new System.Windows.Forms.PropertyGrid();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.FPSTimer = new System.Windows.Forms.Timer(this.components);
+            this.FPSLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -153,11 +157,25 @@
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FPSLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 501);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(732, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // FPSTimer
+            // 
+            this.FPSTimer.Enabled = true;
+            this.FPSTimer.Interval = 1000;
+            this.FPSTimer.Tick += new System.EventHandler(this.FPSTimer_Tick);
+            // 
+            // FPSLabel
+            // 
+            this.FPSLabel.Name = "FPSLabel";
+            this.FPSLabel.Size = new System.Drawing.Size(38, 17);
+            this.FPSLabel.Text = "FPS: 0";
             // 
             // Source
             // 
@@ -178,6 +196,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +216,8 @@
         private System.Windows.Forms.Button DelObjectButton2;
         private System.Windows.Forms.Button AddObjectButton2;
         private System.Windows.Forms.ListView ObjectListView;
+        private System.Windows.Forms.Timer FPSTimer;
+        private System.Windows.Forms.ToolStripStatusLabel FPSLabel;
     }
 }
 

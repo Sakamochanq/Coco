@@ -28,6 +28,9 @@ namespace Coco
 
         private Point dragOffset;
 
+        private int frameCount = 0;
+        private int currentFPS = 0;
+
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             // 背景の描画
@@ -64,6 +67,7 @@ namespace Coco
                     e.Graphics.DrawString(device.Name, font, textBrush, device.Cord, format);
                 }
             }
+            frameCount++;
 
         }
 
@@ -280,6 +284,16 @@ namespace Coco
                 // PictureBox再描画
                 pictureBox.Invalidate();
             }
+        }
+
+        private void FPSTimer_Tick(object sender, EventArgs e)
+        {
+            currentFPS = frameCount;
+            FPSLabel.Text = "FPS: " + currentFPS;
+            frameCount = 0;
+
+            // 画面を再描画
+            pictureBox.Invalidate();
         }
     }
 }
