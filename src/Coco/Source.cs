@@ -50,14 +50,18 @@ namespace Coco
                     e.Graphics.DrawRectangle(Pens.Black, device.Cord);
                 }
 
-                // テキストの描画
-                StringFormat format = new StringFormat();
+                using (Font font = new Font(this.Font.FontFamily, device.TextSize))
+                using (SolidBrush textBrush = new SolidBrush(device.TextColor))
+                {
+                    // テキストの描画
+                    StringFormat format = new StringFormat();
 
-                // テキストを中央に配置
-                format.Alignment = StringAlignment.Center;
-                format.LineAlignment = StringAlignment.Center;
+                    // テキストを中央に配置
+                    format.Alignment = StringAlignment.Center;
+                    format.LineAlignment = StringAlignment.Center;
 
-                e.Graphics.DrawString(device.Name, this.Font, Brushes.Black, device.Cord, format);
+                    e.Graphics.DrawString(device.Name, font, textBrush, device.Cord, format);
+                }
             }
 
         }

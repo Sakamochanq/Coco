@@ -27,6 +27,16 @@ namespace Coco.utils
         [Description("オブジェクトの背景色です")]
         public Color ObjectColor { get; set; } = Color.DeepSkyBlue;
 
+        [Category("Text")]
+        [DisplayName("ForeColor")]
+        [Description("文字の色です")]
+        public Color TextColor { get; set; } = Color.Black;
+
+        [Category("Text")]
+        [DisplayName("TextSize")]
+        [Description("文字サイズです")]
+        public float TextSize { get; set; } = 10f;
+
         public override string ToString()
         {
             return ID.ToString();
