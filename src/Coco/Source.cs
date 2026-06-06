@@ -11,6 +11,10 @@ namespace Coco
         public Source()
         {
             InitializeComponent();
+
+            // 列を追加
+            ObjectListView.Columns.Add("ID", 130);
+            ObjectListView.Columns.Add("Name", 50);
         }
 
         private Background background = new Background();
@@ -64,8 +68,14 @@ namespace Coco
             // デバイスリストに追加
             devices.Add(pc);
 
-            // ListBoxに登録
-            ObjectListBox.Items.Add(pc);
+            // ListViewに登録
+            ListViewItem item = new ListViewItem(pc.ID.ToString());
+
+            item.SubItems.Add(pc.Name);
+            item.Tag = pc;
+
+            ObjectListView.Items.Add(item);
+
 
             // 画面を再描画
             pictureBox.Invalidate();
@@ -79,8 +89,12 @@ namespace Coco
 
         private void ObjectListBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (ObjectListBox.SelectedItem is device selectedDevice)
+            if (ObjectListView.SelectedItems.Count > 0)
             {
+                ListViewItem item = ObjectListView.SelectedItems[0];
+
+                device selectedDevice = (device)item.Tag;
+
                 Objectproperty.SelectedObject = selectedDevice;
             }
         }
@@ -99,8 +113,15 @@ namespace Coco
                     // 選択中のオブジェクトをプロパティに表示
                     Objectproperty.SelectedObject = device;
 
-                    // ListBoxでオブジェクトを選択状態にする
-                    ObjectListBox.SelectedItem = device;
+                    // ListViewでオブジェクトを選択状態にする
+                    foreach (ListViewItem item in ObjectListView.Items)
+                    {
+                        if (item.Tag == device)
+                        {
+                            item.Selected = true;
+                            break;
+                        }
+                    }
 
                     // ドラッグ移動開始
                     isDragging = true;
@@ -171,14 +192,25 @@ namespace Coco
         }
 
         private void Objectproperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
-        {
+        { 
+            // PictureBox再描画
             pictureBox.Invalidate();
 
-            // ListBoxの内容を更新
-            int index = ObjectListBox.SelectedIndex;
+            // ListView更新
+            if (selectedDevice != null)
+            {
+                foreach (ListViewItem item in ObjectListView.Items)
+                {
+                    if (item.Tag == selectedDevice)
+                    {
+                        item.Text = selectedDevice.ID.ToString();
 
-            // 選択されたオブジェクトがListBoxに存在する場合のみ更新
-            ObjectListBox.Items[index] = ObjectListBox.Items[index];
+                        item.SubItems[1].Text = selectedDevice.Name;
+
+                        break;
+                    }
+                }
+            }
         }
 
         private void DelObjectButton2_Click(object sender, System.EventArgs e)
@@ -186,14 +218,26 @@ namespace Coco
             // 選択されたオブジェクトを削除
             if (selectedDevice != null)
             {
+                // device削除
                 devices.Remove(selectedDevice);
 
-                ObjectListBox.Items.Remove(selectedDevice);
+                // ListView削除
+                foreach (ListViewItem item in ObjectListView.Items)
+                {
+                    if (item.Tag == selectedDevice)
+                    {
+                        ObjectListView.Items.Remove(item);
+                        break;
+                    }
+                }
 
+                // PropertyGridクリア
                 Objectproperty.SelectedObject = null;
 
+                // 選択解除
                 selectedDevice = null;
 
+                // 再描画
                 pictureBox.Invalidate();
             }
         }

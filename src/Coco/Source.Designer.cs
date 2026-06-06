@@ -34,11 +34,11 @@
             this.AddObjectButton1 = new System.Windows.Forms.ToolStripMenuItem();
             this.DelObjectButton1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Objectproperty = new System.Windows.Forms.PropertyGrid();
-            this.ObjectListBox = new System.Windows.Forms.ListBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.AddObjectButton2 = new System.Windows.Forms.Button();
+            this.ObjectListView = new System.Windows.Forms.ListView();
             this.DelObjectButton2 = new System.Windows.Forms.Button();
+            this.AddObjectButton2 = new System.Windows.Forms.Button();
+            this.Objectproperty = new System.Windows.Forms.PropertyGrid();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,9 +96,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.ObjectListView);
             this.panel1.Controls.Add(this.DelObjectButton2);
             this.panel1.Controls.Add(this.AddObjectButton2);
-            this.panel1.Controls.Add(this.ObjectListBox);
             this.panel1.Controls.Add(this.Objectproperty);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(735, 24);
@@ -106,32 +106,28 @@
             this.panel1.Size = new System.Drawing.Size(232, 499);
             this.panel1.TabIndex = 2;
             // 
-            // Objectproperty
+            // ObjectListView
             // 
-            this.Objectproperty.Location = new System.Drawing.Point(14, 251);
-            this.Objectproperty.Name = "Objectproperty";
-            this.Objectproperty.Size = new System.Drawing.Size(206, 236);
-            this.Objectproperty.TabIndex = 0;
-            this.Objectproperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.Objectproperty_PropertyValueChanged);
+            this.ObjectListView.FullRowSelect = true;
+            this.ObjectListView.GridLines = true;
+            this.ObjectListView.HideSelection = false;
+            this.ObjectListView.Location = new System.Drawing.Point(14, 17);
+            this.ObjectListView.Name = "ObjectListView";
+            this.ObjectListView.Size = new System.Drawing.Size(206, 160);
+            this.ObjectListView.TabIndex = 4;
+            this.ObjectListView.UseCompatibleStateImageBehavior = false;
+            this.ObjectListView.View = System.Windows.Forms.View.Details;
             // 
-            // ObjectListBox
+            // DelObjectButton2
             // 
-            this.ObjectListBox.FormattingEnabled = true;
-            this.ObjectListBox.ItemHeight = 12;
-            this.ObjectListBox.Location = new System.Drawing.Point(14, 17);
-            this.ObjectListBox.Name = "ObjectListBox";
-            this.ObjectListBox.Size = new System.Drawing.Size(206, 160);
-            this.ObjectListBox.TabIndex = 1;
-            this.ObjectListBox.SelectedIndexChanged += new System.EventHandler(this.ObjectListBox_SelectedIndexChanged);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(735, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.DelObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.DelObjectButton2.Location = new System.Drawing.Point(52, 184);
+            this.DelObjectButton2.Name = "DelObjectButton2";
+            this.DelObjectButton2.Size = new System.Drawing.Size(168, 30);
+            this.DelObjectButton2.TabIndex = 4;
+            this.DelObjectButton2.Text = "選択中のオブジェクトを削除";
+            this.DelObjectButton2.UseVisualStyleBackColor = true;
+            this.DelObjectButton2.Click += new System.EventHandler(this.DelObjectButton2_Click);
             // 
             // AddObjectButton2
             // 
@@ -144,16 +140,22 @@
             this.AddObjectButton2.UseVisualStyleBackColor = true;
             this.AddObjectButton2.Click += new System.EventHandler(this.AddObjectButton2_Click);
             // 
-            // DelObjectButton2
+            // Objectproperty
             // 
-            this.DelObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DelObjectButton2.Location = new System.Drawing.Point(52, 184);
-            this.DelObjectButton2.Name = "DelObjectButton2";
-            this.DelObjectButton2.Size = new System.Drawing.Size(168, 30);
-            this.DelObjectButton2.TabIndex = 4;
-            this.DelObjectButton2.Text = "選択中のオブジェクトを削除";
-            this.DelObjectButton2.UseVisualStyleBackColor = true;
-            this.DelObjectButton2.Click += new System.EventHandler(this.DelObjectButton2_Click);
+            this.Objectproperty.Location = new System.Drawing.Point(14, 251);
+            this.Objectproperty.Name = "Objectproperty";
+            this.Objectproperty.Size = new System.Drawing.Size(206, 236);
+            this.Objectproperty.TabIndex = 0;
+            this.Objectproperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.Objectproperty_PropertyValueChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(735, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // Source
             // 
@@ -188,10 +190,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem DelObjectButton1;
         private System.Windows.Forms.PropertyGrid Objectproperty;
-        private System.Windows.Forms.ListBox ObjectListBox;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Button DelObjectButton2;
         private System.Windows.Forms.Button AddObjectButton2;
+        private System.Windows.Forms.ListView ObjectListView;
     }
 }
 
