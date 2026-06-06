@@ -1,5 +1,6 @@
 ﻿using Coco.graphics;
 using Coco.utils;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -71,10 +72,13 @@ namespace Coco
             // 配置をずらす為のオフセット
             int offset = devices.Count * 20;
 
+            //ランダムIDの生成
+            int randomID = new Random().Next(1000000, 9999999);
+
             // 新規オブジェクトの追加
             device pc = new device
             {
-                ID = device.ReferenceEquals(devices, null) ? 1 : devices.Count + 1,
+                ID = $"PC-{randomID.ToString()}",
                 Name = null,
                 User = null,
                 Cord = new Rectangle(100 + offset, 100 + offset, 70, 40)
@@ -185,12 +189,7 @@ namespace Coco
                     newY = pictureBox.Height - selectedDevice.Cord.Height;
                 }
 
-                selectedDevice.Cord = new Rectangle(
-                    newX,
-                    newY,
-                    selectedDevice.Cord.Width,
-                    selectedDevice.Cord.Height
-                );
+                selectedDevice.Cord = new Rectangle(newX, newY, selectedDevice.Cord.Width, selectedDevice.Cord.Height);
 
                 // プロパティを更新
                 Objectproperty.Refresh();

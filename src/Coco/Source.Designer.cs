@@ -89,6 +89,7 @@
             // DelObjectButton1
             // 
             this.DelObjectButton1.Name = "DelObjectButton1";
+            this.DelObjectButton1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
             this.DelObjectButton1.Size = new System.Drawing.Size(256, 22);
             this.DelObjectButton1.Text = "選択中のオブジェクトを削除";
             this.DelObjectButton1.Click += new System.EventHandler(this.DelObjectButton1_Click);

@@ -12,7 +12,7 @@ namespace Coco.utils
 
         [Category("Data")]
         [Description("機材の識別IDです")]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         [Category("Data")]
         [Description("機材名です")]
