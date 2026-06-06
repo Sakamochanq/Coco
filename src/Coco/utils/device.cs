@@ -22,6 +22,11 @@ namespace Coco.utils
         [Description("使用者名です")]
         public string User { get; set; }
 
+        [Category("Appearance")]
+        [DisplayName("色")]
+        [Description("オブジェクトの背景色です")]
+        public Color ObjectColor { get; set; } = Color.DeepSkyBlue;
+
         public override string ToString()
         {
             return ID.ToString();

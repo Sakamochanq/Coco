@@ -35,9 +35,11 @@ namespace Coco
             // デバイスの描画
             foreach (device device in devices)
             {
-                e.Graphics.FillRectangle(Brushes.DeepSkyBlue, device.Cord);
+                using (SolidBrush brush = new SolidBrush(device.ObjectColor))
+                {
+                    e.Graphics.FillRectangle(brush, device.Cord);
+                }
 
-                //e.Graphics.DrawRectangle(Pens.Black, device.Cord);
 
                 if (device == selectedDevice)
                 {
