@@ -7,6 +7,7 @@ namespace Coco.utils
     {
         [Category("Coordinate")]
         [Description("オブジェクトの座標・サイズです。")]
+        [ReadOnly(true)]
         public Rectangle Cord { get; set; }
 
         [Category("Basic")]

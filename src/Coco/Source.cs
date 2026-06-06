@@ -59,7 +59,7 @@ namespace Coco
             // 新規オブジェクトの追加
             device pc = new device
             {
-                ID = 001,
+                ID = device.ReferenceEquals(devices, null) ? 1 : devices.Count + 1,
                 Name = "PC",
                 User = "",
                 Cord = new Rectangle(100 + offset, 100 + offset, 70, 40)
