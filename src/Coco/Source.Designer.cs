@@ -111,6 +111,7 @@
             this.Objectproperty.Name = "Objectproperty";
             this.Objectproperty.Size = new System.Drawing.Size(206, 236);
             this.Objectproperty.TabIndex = 0;
+            this.Objectproperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.Objectproperty_PropertyValueChanged);
             // 
             // ObjectListBox
             // 

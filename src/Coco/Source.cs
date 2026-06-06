@@ -169,5 +169,16 @@ namespace Coco
             // ドラッグ移動終了
             isDragging = false;
         }
+
+        private void Objectproperty_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            pictureBox.Invalidate();
+
+            // ListBoxの内容を更新
+            int index = ObjectListBox.SelectedIndex;
+
+            // 選択されたオブジェクトがListBoxに存在する場合のみ更新
+            ObjectListBox.Items[index] = ObjectListBox.Items[index];
+        }
     }
 }
