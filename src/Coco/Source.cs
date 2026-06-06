@@ -17,6 +17,8 @@ namespace Coco
 
         private List<device> devices = new List<device>();
 
+        private device selectedDevice = null;
+
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             // 背景の描画
@@ -26,7 +28,17 @@ namespace Coco
             foreach (device device in devices)
             {
                 e.Graphics.FillRectangle(Brushes.DeepSkyBlue, device.Cord);
-                e.Graphics.DrawRectangle(Pens.Black, device.Cord);
+
+                //e.Graphics.DrawRectangle(Pens.Black, device.Cord);
+
+                if (device == selectedDevice)
+                {
+                    e.Graphics.DrawRectangle(new Pen(Color.Red, 3), device.Cord);
+                }
+                else
+                {
+                    e.Graphics.DrawRectangle(Pens.Black, device.Cord);
+                }
             }
 
         }
@@ -59,6 +71,35 @@ namespace Coco
         private void AddObjectButton2_Click(object sender, System.EventArgs e)
         {
             AddObjectButton1_Click(sender, e);
+        }
+
+        private void ObjectListBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (ObjectListBox.SelectedItem is device selectedDevice)
+            {
+                Objectproperty.SelectedObject = selectedDevice;
+            }
+        }
+
+        private void pictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            selectedDevice = null;
+
+            foreach (device device in devices)
+            {
+                if (device.Cord.Contains(e.Location))
+                {
+                    selectedDevice = device;
+
+                    Objectproperty.SelectedObject = device;
+
+                    ObjectListBox.SelectedItem = device;
+
+                    break;
+                }
+            }
+
+            pictureBox.Invalidate();
         }
     }
 }
