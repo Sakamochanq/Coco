@@ -11,5 +11,10 @@ namespace Coco.utils
         public string Name { get; set; }
 
         public string User { get; set; }
+
+        public override string ToString()
+        {
+            return ID.ToString();
+        }
     }
 }

@@ -48,6 +48,9 @@ namespace Coco
             // デバイスリストに追加
             devices.Add(pc);
 
+            // ListBoxに登録
+            ObjectListBox.Items.Add(pc);
+
             // 画面を再描画
             pictureBox.Invalidate();
 
