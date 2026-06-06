@@ -122,7 +122,39 @@ namespace Coco
             if (isDragging && selectedDevice != null)
             {
                 // デバイスの位置を更新
-                selectedDevice.Cord = new Rectangle(e.X - dragOffset.X, e.Y - dragOffset.Y, selectedDevice.Cord.Width, selectedDevice.Cord.Height);
+                int newX = e.X - dragOffset.X;
+                int newY = e.Y - dragOffset.Y;
+
+                // 左端制限
+                if (newX < 0)
+                {
+                    newX = 0;
+                }
+
+                // 上端制限
+                if (newY < 0)
+                {
+                    newY = 0;
+                }
+
+                // 右端制限
+                if (newX + selectedDevice.Cord.Width > pictureBox.Width)
+                {
+                    newX = pictureBox.Width - selectedDevice.Cord.Width;
+                }
+
+                // 下端制限
+                if (newY + selectedDevice.Cord.Height > pictureBox.Height)
+                {
+                    newY = pictureBox.Height - selectedDevice.Cord.Height;
+                }
+
+                selectedDevice.Cord = new Rectangle(
+                    newX,
+                    newY,
+                    selectedDevice.Cord.Width,
+                    selectedDevice.Cord.Height
+                );
 
                 // プロパティを更新
                 Objectproperty.Refresh();
