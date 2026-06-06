@@ -49,6 +49,15 @@ namespace Coco
                 {
                     e.Graphics.DrawRectangle(Pens.Black, device.Cord);
                 }
+
+                // テキストの描画
+                StringFormat format = new StringFormat();
+
+                // テキストを中央に配置
+                format.Alignment = StringAlignment.Center;
+                format.LineAlignment = StringAlignment.Center;
+
+                e.Graphics.DrawString(device.Name, this.Font, Brushes.Black, device.Cord, format);
             }
 
         }
@@ -62,8 +71,8 @@ namespace Coco
             device pc = new device
             {
                 ID = device.ReferenceEquals(devices, null) ? 1 : devices.Count + 1,
-                Name = "PC",
-                User = "",
+                Name = null,
+                User = null,
                 Cord = new Rectangle(100 + offset, 100 + offset, 70, 40)
             };
 
