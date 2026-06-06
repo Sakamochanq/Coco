@@ -91,6 +91,7 @@
             this.DelObjectButton1.Name = "DelObjectButton1";
             this.DelObjectButton1.Size = new System.Drawing.Size(256, 22);
             this.DelObjectButton1.Text = "選択中のオブジェクトを削除";
+            this.DelObjectButton1.Click += new System.EventHandler(this.DelObjectButton1_Click);
             // 
             // panel1
             // 
@@ -152,6 +153,7 @@
             this.DelObjectButton2.TabIndex = 4;
             this.DelObjectButton2.Text = "選択中のオブジェクトを削除";
             this.DelObjectButton2.UseVisualStyleBackColor = true;
+            this.DelObjectButton2.Click += new System.EventHandler(this.DelObjectButton2_Click);
             // 
             // Source
             // 

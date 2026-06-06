@@ -180,5 +180,27 @@ namespace Coco
             // 選択されたオブジェクトがListBoxに存在する場合のみ更新
             ObjectListBox.Items[index] = ObjectListBox.Items[index];
         }
+
+        private void DelObjectButton2_Click(object sender, System.EventArgs e)
+        {
+            // 選択されたオブジェクトを削除
+            if (selectedDevice != null)
+            {
+                devices.Remove(selectedDevice);
+
+                ObjectListBox.Items.Remove(selectedDevice);
+
+                Objectproperty.SelectedObject = null;
+
+                selectedDevice = null;
+
+                pictureBox.Invalidate();
+            }
+        }
+
+        private void DelObjectButton1_Click(object sender, System.EventArgs e)
+        {
+            DelObjectButton1_Click(sender, e);
+        }
     }
 }
