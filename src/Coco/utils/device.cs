@@ -22,15 +22,28 @@ namespace Coco.utils
         [Description("使用者名です")]
         public string User { get; set; }
 
-        [Category("Appearance")]
-        [DisplayName("BackColor")]
-        [Description("オブジェクトの背景色です")]
+        [Category("Data")]
+        [Description("オブジェクトの背景色です。")]
         public Color ObjectColor { get; set; } = Color.Gainsboro;
 
-        [Category("Appearance")]
-        [DisplayName("ForeColor")]
-        [Description("文字の色です")]
-        public Color TextColor { get; set; } = Color.Black;
+        [Category("Data")]
+        [Description("オブジェクトの文字色です。")]
+        public Color TextColor { get; set; }　= Color.Black;
+
+        [Browsable(false)]
+        public string ObjectColorHtml
+        {
+            get => ColorTranslator.ToHtml(ObjectColor);
+            set => ObjectColor = ColorTranslator.FromHtml(value);
+        }
+
+        [Category("Data")]
+        [Browsable(false)]
+        public string TextColorHtml
+        {
+            get => ColorTranslator.ToHtml(TextColor);
+            set => TextColor = ColorTranslator.FromHtml(value);
+        }
 
         [Category("Appearance")]
         [DisplayName("TextSize")]

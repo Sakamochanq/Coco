@@ -40,8 +40,8 @@
             this.AddObjectButton2 = new System.Windows.Forms.Button();
             this.Objectproperty = new System.Windows.Forms.PropertyGrid();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.FPSTimer = new System.Windows.Forms.Timer(this.components);
             this.FPSLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.FPSTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -165,22 +165,21 @@
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // FPSTimer
-            // 
-            this.FPSTimer.Enabled = true;
-            this.FPSTimer.Interval = 1000;
-            this.FPSTimer.Tick += new System.EventHandler(this.FPSTimer_Tick);
-            // 
             // FPSLabel
             // 
             this.FPSLabel.Name = "FPSLabel";
             this.FPSLabel.Size = new System.Drawing.Size(38, 17);
             this.FPSLabel.Text = "FPS: 0";
             // 
+            // FPSTimer
+            // 
+            this.FPSTimer.Enabled = true;
+            this.FPSTimer.Interval = 1000;
+            this.FPSTimer.Tick += new System.EventHandler(this.FPSTimer_Tick);
+            // 
             // Source
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1002, 523);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
@@ -192,6 +191,7 @@
             this.Name = "Source";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coco   |   Sakamochanq";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Source_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

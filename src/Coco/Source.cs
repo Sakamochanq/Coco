@@ -3,6 +3,8 @@ using Coco.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace Coco
@@ -15,7 +17,31 @@ namespace Coco
 
             // 列を追加
             ObjectListView.Columns.Add("ID", 130);
-            ObjectListView.Columns.Add("Name", 50);
+            ObjectListView.Columns.Add("Name", 80);
+
+            saver = new saver();
+
+            // 保存データの読み込み
+            devices = saver.Load();
+
+            RefreshObjectListView();
+        }
+
+        private void RefreshObjectListView()
+        {
+            ObjectListView.Items.Clear();
+
+            foreach (device device in devices)
+            {
+                ListViewItem item =
+                    new ListViewItem(device.ID);
+
+                item.SubItems.Add(device.Name);
+
+                item.Tag = device;
+
+                ObjectListView.Items.Add(item);
+            }
         }
 
         private Background background = new Background();
@@ -30,6 +56,8 @@ namespace Coco
 
         private int frameCount = 0;
         private int currentFPS = 0;
+
+        private saver saver = new saver();
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
@@ -294,6 +322,11 @@ namespace Coco
 
             // 画面を再描画
             pictureBox.Invalidate();
+        }
+
+        private void Source_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            saver.Save(devices);
         }
     }
 }
