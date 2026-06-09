@@ -33,9 +33,15 @@
             this.FPSLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.FPSTimer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveCanvasButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddObjectButton1 = new System.Windows.Forms.ToolStripMenuItem();
             this.DelObjectButton1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.DelALLObjectButton = new System.Windows.Forms.ToolStripMenuItem();
             this.Objectproperty = new System.Windows.Forms.PropertyGrid();
             this.AddObjectButton2 = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
@@ -44,12 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveCanvasButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.DelALLObjectButton = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -92,6 +92,38 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveCanvasButton,
+            this.toolStripMenuItem2,
+            this.ExitButton});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
+            this.toolStripMenuItem1.Text = "ファイル（F）";
+            // 
+            // SaveCanvasButton
+            // 
+            this.SaveCanvasButton.Name = "SaveCanvasButton";
+            this.SaveCanvasButton.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.SaveCanvasButton.Size = new System.Drawing.Size(202, 22);
+            this.SaveCanvasButton.Text = "画面を保存";
+            this.SaveCanvasButton.Click += new System.EventHandler(this.SaveCanvasButton_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(199, 6);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.ExitButton.Size = new System.Drawing.Size(202, 22);
+            this.ExitButton.Text = "終了";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // ファイルFToolStripMenuItem
             // 
             this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -120,14 +152,26 @@
             this.DelObjectButton1.Text = "選択中のオブジェクトを削除";
             this.DelObjectButton1.Click += new System.EventHandler(this.DelObjectButton1_Click);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(253, 6);
+            // 
+            // DelALLObjectButton
+            // 
+            this.DelALLObjectButton.Name = "DelALLObjectButton";
+            this.DelALLObjectButton.Size = new System.Drawing.Size(256, 22);
+            this.DelALLObjectButton.Text = "全てのオブジェクトを削除";
+            this.DelALLObjectButton.Click += new System.EventHandler(this.DelALLObjectButton_Click);
+            // 
             // Objectproperty
             // 
             this.Objectproperty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Objectproperty.Location = new System.Drawing.Point(14, 266);
+            this.Objectproperty.Location = new System.Drawing.Point(14, 313);
             this.Objectproperty.Name = "Objectproperty";
-            this.Objectproperty.Size = new System.Drawing.Size(340, 239);
+            this.Objectproperty.Size = new System.Drawing.Size(340, 192);
             this.Objectproperty.TabIndex = 0;
             this.Objectproperty.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.Objectproperty_PropertyValueChanged);
             // 
@@ -136,7 +180,7 @@
             this.AddObjectButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.AddObjectButton2.Location = new System.Drawing.Point(14, 225);
+            this.AddObjectButton2.Location = new System.Drawing.Point(14, 272);
             this.AddObjectButton2.Name = "AddObjectButton2";
             this.AddObjectButton2.Size = new System.Drawing.Size(35, 35);
             this.AddObjectButton2.TabIndex = 4;
@@ -165,7 +209,7 @@
             this.DelObjectButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DelObjectButton2.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DelObjectButton2.Location = new System.Drawing.Point(96, 225);
+            this.DelObjectButton2.Location = new System.Drawing.Point(96, 272);
             this.DelObjectButton2.Name = "DelObjectButton2";
             this.DelObjectButton2.Size = new System.Drawing.Size(193, 35);
             this.DelObjectButton2.TabIndex = 4;
@@ -182,7 +226,7 @@
             this.ObjectListView.HideSelection = false;
             this.ObjectListView.Location = new System.Drawing.Point(14, 12);
             this.ObjectListView.Name = "ObjectListView";
-            this.ObjectListView.Size = new System.Drawing.Size(340, 207);
+            this.ObjectListView.Size = new System.Drawing.Size(340, 254);
             this.ObjectListView.TabIndex = 4;
             this.ObjectListView.UseCompatibleStateImageBehavior = false;
             this.ObjectListView.View = System.Windows.Forms.View.Details;
@@ -208,7 +252,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Location = new System.Drawing.Point(55, 225);
+            this.button1.Location = new System.Drawing.Point(55, 272);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(35, 35);
             this.button1.TabIndex = 4;
@@ -226,50 +270,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(713, 518);
             this.panel2.TabIndex = 7;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SaveCanvasButton,
-            this.toolStripMenuItem2,
-            this.ExitButton});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
-            this.toolStripMenuItem1.Text = "ファイル（F）";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(199, 6);
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.ExitButton.Size = new System.Drawing.Size(202, 22);
-            this.ExitButton.Text = "終了";
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // SaveCanvasButton
-            // 
-            this.SaveCanvasButton.Name = "SaveCanvasButton";
-            this.SaveCanvasButton.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.SaveCanvasButton.Size = new System.Drawing.Size(202, 22);
-            this.SaveCanvasButton.Text = "画面を保存";
-            this.SaveCanvasButton.Click += new System.EventHandler(this.SaveCanvasButton_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(253, 6);
-            // 
-            // DelALLObjectButton
-            // 
-            this.DelALLObjectButton.Name = "DelALLObjectButton";
-            this.DelALLObjectButton.Size = new System.Drawing.Size(256, 22);
-            this.DelALLObjectButton.Text = "全てのオブジェクトを削除";
-            this.DelALLObjectButton.Click += new System.EventHandler(this.DelALLObjectButton_Click);
             // 
             // Source
             // 
