@@ -48,6 +48,8 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveCanvasButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.DelALLObjectButton = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -94,7 +96,9 @@
             // 
             this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddObjectButton1,
-            this.DelObjectButton1});
+            this.DelObjectButton1,
+            this.toolStripMenuItem3,
+            this.DelALLObjectButton});
             this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
             this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.ファイルFToolStripMenuItem.Text = "描画（D）";
@@ -255,6 +259,18 @@
             this.SaveCanvasButton.Text = "画面を保存";
             this.SaveCanvasButton.Click += new System.EventHandler(this.SaveCanvasButton_Click);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(253, 6);
+            // 
+            // DelALLObjectButton
+            // 
+            this.DelALLObjectButton.Name = "DelALLObjectButton";
+            this.DelALLObjectButton.Size = new System.Drawing.Size(256, 22);
+            this.DelALLObjectButton.Text = "全てのオブジェクトを削除";
+            this.DelALLObjectButton.Click += new System.EventHandler(this.DelALLObjectButton_Click);
+            // 
             // Source
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -300,6 +316,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem ExitButton;
         private System.Windows.Forms.ToolStripMenuItem SaveCanvasButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem DelALLObjectButton;
     }
 }
 

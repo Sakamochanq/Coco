@@ -356,5 +356,23 @@ namespace Coco
         {
             Application.Exit();
         }
+
+        private void DelALLObjectButton_Click(object sender, EventArgs e)
+        {
+            var Message = MessageBox.Show("新規作成しますか？\r\n背景以外の全てのオブジェクトが削除されます。", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+            if (Message == DialogResult.Yes)
+            {
+                devices.Clear();
+                ObjectListView.Items.Clear();
+                Objectproperty.SelectedObject = null;
+
+                // 選択状態をリセット
+                selectedDevice = null;
+
+                // 画面を再描画
+                pictureBox.Invalidate();
+            }
+        }
     }
 }
