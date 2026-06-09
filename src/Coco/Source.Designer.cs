@@ -44,6 +44,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ExitButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveCanvasButton = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -78,6 +82,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.ファイルFToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -218,6 +223,38 @@
             this.panel2.Size = new System.Drawing.Size(713, 518);
             this.panel2.TabIndex = 7;
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveCanvasButton,
+            this.toolStripMenuItem2,
+            this.ExitButton});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
+            this.toolStripMenuItem1.Text = "ファイル（F）";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(199, 6);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.ExitButton.Size = new System.Drawing.Size(202, 22);
+            this.ExitButton.Text = "終了";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // SaveCanvasButton
+            // 
+            this.SaveCanvasButton.Name = "SaveCanvasButton";
+            this.SaveCanvasButton.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.SaveCanvasButton.Size = new System.Drawing.Size(202, 22);
+            this.SaveCanvasButton.Text = "画面を保存";
+            this.SaveCanvasButton.Click += new System.EventHandler(this.SaveCanvasButton_Click);
+            // 
             // Source
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -259,6 +296,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem ExitButton;
+        private System.Windows.Forms.ToolStripMenuItem SaveCanvasButton;
     }
 }
 

@@ -328,5 +328,33 @@ namespace Coco
         {
             saver.Save(devices);
         }
+
+        private void SaveCanvasButton_Click(object sender, EventArgs e)
+        {
+            // 任意の画像形式でキャンバスを保存する
+            using (var sfd = new SaveFileDialog() { Filter = "PNG形式（*.png） | *.png; | JPEG形式（*.jpg） | *.jpg;" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height))
+                    {
+                        pictureBox.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                        if (sfd.FileName.EndsWith(".png"))
+                        {
+                            bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                        }
+                        else if (sfd.FileName.EndsWith(".jpg"))
+                        {
+                            bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
