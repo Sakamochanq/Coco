@@ -3,6 +3,7 @@ using Coco.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Forms;
@@ -341,11 +342,13 @@ namespace Coco
                         pictureBox.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
                         if (sfd.FileName.EndsWith(".png"))
                         {
-                            bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            bmp.Save(sfd.FileName, ImageFormat.Png);
+                            MessageBox.Show($"キャンバスを保存しました。\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (sfd.FileName.EndsWith(".jpg"))
                         {
-                            bmp.Save(sfd.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            bmp.Save(sfd.FileName, ImageFormat.Jpeg);
+                            MessageBox.Show($"キャンバスを保存しました。\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                     }
                 }
