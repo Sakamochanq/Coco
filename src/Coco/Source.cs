@@ -343,12 +343,12 @@ namespace Coco
                         if (sfd.FileName.EndsWith(".png"))
                         {
                             bmp.Save(sfd.FileName, ImageFormat.Png);
-                            MessageBox.Show($"キャンバスを保存しました。\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"キャンバスを保存しました。\r\n\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (sfd.FileName.EndsWith(".jpg"))
                         {
                             bmp.Save(sfd.FileName, ImageFormat.Jpeg);
-                            MessageBox.Show($"キャンバスを保存しました。\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"キャンバスを保存しました。\r\n\r\n{sfd.FileName}", "保存完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                     }
                 }
@@ -362,7 +362,7 @@ namespace Coco
 
         private void DelALLObjectButton_Click(object sender, EventArgs e)
         {
-            var Message = MessageBox.Show("新規作成しますか？\r\n背景以外の全てのオブジェクトが削除されます。", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            var Message = MessageBox.Show("新規作成しますか？\r\n\r\n背景以外の全てのオブジェクトが削除されます。", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (Message == DialogResult.Yes)
             {
